@@ -1,0 +1,76 @@
+Script started on Wed 25 Sep 2024 06:47:00 PM MDT
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ make
+make -C /lib/modules/4.4.0-210-generic/build M=/home/osc/os-concepts/raptor_maze modules
+make[1]: Entering directory '/usr/src/linux-headers-4.4.0-210-generic'
+  CC [M]  /home/osc/os-concepts/raptor_maze/raptor_maze.o
+[01m[K/home/osc/os-concepts/raptor_maze/raptor_maze.c:[m[K In function ‘[01m[Kread[m[K’:
+[01m[K/home/osc/os-concepts/raptor_maze/raptor_maze.c:109:2:[m[K [01;35m[Kwarning: [m[KISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  char *maze = kmalloc(maze_size, GFP_KERNEL); // allocate memory for maze so i
+[01;32m[K  ^[m[K
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/osc/os-concepts/raptor_maze/raptor_maze.mod.o
+  LD [M]  /home/osc/os-concepts/raptor_maze/raptor_maze.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.4.0-210-generic'
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ sudo insmod raptor_maze.ko
+[sudo] password for osc: 
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ python raptor_maze.py 
+Enter dimension for width (Max 27):25
+Enter dimension for height (Max 27):25
+###########################
+# #   #     #       #   # #
+# # ### # # ### ### # # # #
+# #     # #     # #   #   #
+# ####### ####### ####### #
+#       # #   #       #   #
+####### # ### # ##### # ###
+# #     #   #   #   # # # #
+# # ####### ##### # # # # #
+#   #       #   # #   #   #
+# ####### ### # # ####### #
+#   #     #   #   #       #
+### # ####### # ### #######
+# #   # #     # #   #     #
+# ##### # # ##### ### # # #
+#       # #     #   # # # #
+# ##### # ##### ### ### # #
+# # #   #   # #   #   # # #
+# # # ##### # # ##### # # #
+# #     # # # #       # # #
+# ##### # # # ######### ###
+#   #     # #             #
+### ####### # ########### #
+#   #   #   # #     #     #
+# ### # # ##### ### # ### #
+#     #         #     #   #
+###########################
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ python raptor_maze.py 
+Enter dimension for width (Max 27):5
+Enter dimension for height (Max 27):5
+#######
+#     #
+##### #
+#   # #
+# ### #
+#     #
+#######
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ echo "13 13 [K" > /proc/raptor_maze 
+]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ cat .[K/proc/raptor_maze 
+###############
+# #   #       #
+# ### # # #####
+#   #   #     #
+### # ####### #
+#   #       # #
+# ##### ##### #
+#     # #     #
+##### ### #####
+#   #   #     #
+# # ### ##### #
+# #   #   #   #
+# ####### # # #
+#           # #
+###############]0;osc@ubuntu: ~/os-concepts/raptor_maze[01;32mosc@ubuntu[00m:[01;34m~/os-concepts/raptor_maze[00m$ exit
+exit
+
+Script done on Wed 25 Sep 2024 06:47:44 PM MDT
